@@ -95,6 +95,8 @@ from .const import (
     ADAPT_COLOR_SWITCH,
     ATTR_ADAPT_BRIGHTNESS,
     ATTR_ADAPT_COLOR,
+    CONF_ADAPT_BRIGHTNESS_UNTIL_SLEEP,
+    CONF_ADAPT_COLOR_TEMP_UNTIL_SLEEP,
     ATTR_ADAPTIVE_LIGHTING_MANAGER,
     CONF_ADAPT_DELAY,
     CONF_ADAPT_ONLY_ON_BARE_TURN_ON,
@@ -891,6 +893,8 @@ class AdaptiveSwitch(SwitchEntity, RestoreEntity):
         self._sun_light_settings = SunLightSettings(
             name=self._name,
             astral_location=location,
+            adapt_brightness_until_sleep=data[CONF_ADAPT_BRIGHTNESS_UNTIL_SLEEP],
+            adapt_color_temp_until_sleep=data[CONF_ADAPT_COLOR_TEMP_UNTIL_SLEEP],
             adapt_until_sleep=data[CONF_ADAPT_UNTIL_SLEEP],
             max_brightness=data[CONF_MAX_BRIGHTNESS],
             max_color_temp=data[CONF_MAX_COLOR_TEMP],
